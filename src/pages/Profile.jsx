@@ -1,22 +1,22 @@
 import { useState, useEffect } from "react";
-import { useNavigate } from "react-router";
+import { useNavigate } from "react-router-dom";
 import "../Beranda.css";
 
 const Profile = () => {
     const navigate = useNavigate();
-    const [user, setUser] = useState(null);
+    const [user, setUser] = useState(() => {
+        const storedUser = JSON.parse(localStorage.getItem("user"));
+        return storedUser || null;
+    });
     const [newPassword, setNewPassword] = useState("");
     const [confirmPassword, setConfirmPassword] = useState("");
 
     // render
     useEffect(() => {
-        const storedUser = JSON.parse(localStorage.getItem("user"));
-        if (!storedUser) {
+        if (!user) {
             navigate("/");
-        } else {
-            setUser(storedUser);
         }
-    }, [navigate]);
+    }, [user, navigate]);
 
     const handleChangePassword = () => {
         if (!newPassword || !confirmPassword) {
@@ -37,7 +37,7 @@ const Profile = () => {
         localStorage.setItem("user", JSON.stringify(updatedUser));
         setUser(updatedUser);
         alert("Kata sandi berhasil diperbarui!");
-        navigate("/home");
+        navigate("/dashboard");
     };
 
     const isValidPassword = (password) => {

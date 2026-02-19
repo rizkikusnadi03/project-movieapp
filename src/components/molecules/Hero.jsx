@@ -1,10 +1,14 @@
+import { useState } from 'react';
+import HeroScreen from '../atoms/HeroScreen';
+
 const Hero = () => {
-    return (
-        <div className="hero">
-            <h1>Welcome to Chill Movie</h1>
-            <p>Watch your favorite movies here.</p>
-        </div>
-    );
+    const [isMuted, setIsMuted] = useState(true);
+
+    const toggleMute = () => {
+        setIsMuted((prev) => !prev);
+    };
+
+    return <HeroScreen isMuted={isMuted} toggleMute={toggleMute} />;
 };
 
 export default Hero;

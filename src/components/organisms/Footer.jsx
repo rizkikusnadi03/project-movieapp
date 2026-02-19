@@ -1,9 +1,26 @@
+import Genre from '../atoms/Genre';
+import chilllogo from '../../assets/chill-logo.png';
+
 const Footer = () => {
-    return (
-        <footer className="footer">
-            <p>&copy; 2026 Chill Movie App</p>
-        </footer>
-    );
-};
+  const genres = [
+    'Aksi', 'Anak-anak', 'Anime', 'Britania', 'Drama',
+    'Fantasi ilmiah & Fantasi', 'Kejahatan', 'Kdrama',
+    'Komedi', 'Petualangan', 'Perang', 'Romantis',
+    'Sains & Alam', 'Thriller'
+  ];
+
+  const helpLinks = [
+    'FAQ', 'Kontak Kami', 'Privasi', 'Syarat & Ketentuan'
+  ];
+
+  return (
+    <Genre
+      logoSrc={chilllogo}
+      copyrightText="©2023 Chill All Rights Reserved."
+      genres={genres}
+      helpLinks={helpLinks}
+    />
+  );
+}
 
 export default Footer;

@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
-import { Link, useNavigate } from 'react-router';
-// import chillLogo from '/src/assets/chill-logo.png';
-import GoogleButton from '/src/components/atoms/GoogleButton';
+import { Link, useNavigate } from 'react-router-dom';
+import chillLogo from '../../assets/chill-logo.png';
+import GoogleButton from '../atoms/GoogleButton';
 import '../../style.css';
 
 const Forms = ({ type }) => {
@@ -57,8 +57,8 @@ const Forms = ({ type }) => {
         <form className="container" onSubmit={(e) => e.preventDefault()}>
             <div className="screen">
                 <div className="screen_title">
-                    {/* <img src={chillLogo} alt="CHILL icon" className="chill-icon" /> */}
-                    <span className="chill-icon-text">CHILL MOVIE</span>
+                    {<img src={chillLogo} alt="CHILL icon" className="chill-icon" />}
+                    <span className="chill-icon-text"></span>
                 </div>
                 <h2 id="subtitle1">{isLogin ? 'Masuk' : 'Daftar'}</h2>
                 <p id="subtitle2">{isLogin ? 'Selamat datang kembali!' : 'Selamat datang!'}</p>
